@@ -6,3 +6,5 @@ packages:
 extra-deps:
 - aws-lambda-haskell-runtime-3.0.0
 - text-1.2.4.0
+- amazonka-dynamodb-1.6.1
+- amazonka-1.6.1

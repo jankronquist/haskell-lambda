@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 007dec8e90b9d66beaa94d4bc3be87f86b913a4951c8728fa0bc5898ebec251f
+-- hash: dc9f6a2a817463edf99749516bd816a5a28af478e271b35ef40ccfb964328b69
 
 name:           my-haskell-lambda
 version:        0.1.0
@@ -30,30 +30,42 @@ library
   hs-source-dirs:
       src
   default-extensions: RecordWildCards OverloadedLists OverloadedStrings DeriveGeneric
-  ghc-options: -O2 -static -threaded
-  cc-options: -static
-  ld-options: -static -pthread
   build-depends:
       aeson
+    , amazonka
+    , amazonka-dynamodb
     , aws-lambda-haskell-runtime >=3.0.0
     , base >=4.7 && <5
+    , bytestring
+    , lens
+    , monad-control
+    , resourcet
     , text
+    , unliftio-core
+    , unordered-containers
   default-language: Haskell2010
 
 executable bootstrap
   main-is: Main.hs
   other-modules:
+      MainOld
       Paths_my_haskell_lambda
   hs-source-dirs:
       app
   default-extensions: RecordWildCards OverloadedLists OverloadedStrings DeriveGeneric
-  ghc-options: -O2 -static -threaded -threaded -rtsopts -O2 -with-rtsopts=-N
-  cc-options: -static
-  ld-options: -static -pthread
+  ghc-options: -threaded -rtsopts -O2 -with-rtsopts=-N
   build-depends:
       aeson
+    , amazonka
+    , amazonka-dynamodb
     , aws-lambda-haskell-runtime >=3.0.0
     , base >=4.7 && <5
+    , bytestring
+    , lens
+    , monad-control
     , my-haskell-lambda
+    , resourcet
     , text
+    , unliftio-core
+    , unordered-containers
   default-language: Haskell2010
