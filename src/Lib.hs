@@ -22,9 +22,18 @@ data Person = Person
 instance FromJSON Person
 instance ToJSON Person
 
-handler :: Person -> Context () -> IO (Either String Address)
-handler person context =
-  if personAge person > 0 then
-    return (Right $ address person)
-  else
-    return (Left "A person's age must be positive")
+data Strange = APerson Person | AnAddress Address deriving (Generic)
+
+instance FromJSON Strange
+instance ToJSON Strange
+
+handler :: Strange -> Context () -> IO (Either String Address)
+handler strange context =
+  case strange of
+    APerson p ->
+      return (Right $ address p)
+      -- if (personAge p > 0)
+      --   return (Right $ address p)
+      -- else
+      --   Left "wrong"
+    AnAddress a -> return (Right a)
