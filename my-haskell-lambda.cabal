@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: c0ff0343d8dcad9215c40c7623229b9382f5045310967684d61ecea91b74f6de
+-- hash: 007dec8e90b9d66beaa94d4bc3be87f86b913a4951c8728fa0bc5898ebec251f
 
 name:           my-haskell-lambda
 version:        0.1.0
@@ -37,6 +37,7 @@ library
       aeson
     , aws-lambda-haskell-runtime >=3.0.0
     , base >=4.7 && <5
+    , text
   default-language: Haskell2010
 
 executable bootstrap
@@ -54,4 +55,5 @@ executable bootstrap
     , aws-lambda-haskell-runtime >=3.0.0
     , base >=4.7 && <5
     , my-haskell-lambda
+    , text
   default-language: Haskell2010

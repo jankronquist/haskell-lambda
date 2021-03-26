@@ -12,6 +12,7 @@ dependencies:
 - base >= 4.7 && < 5
 - aws-lambda-haskell-runtime >= 3.0.0
 - aeson
+- text
 
 ghc-options: -O2 -static -threaded
 cc-options: -static

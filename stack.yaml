@@ -5,3 +5,4 @@ packages:
 
 extra-deps:
 - aws-lambda-haskell-runtime-3.0.0
+- text-1.2.4.0
