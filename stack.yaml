@@ -1,0 +1,7 @@
+resolver: lts-15.16
+
+packages:
+- .
+
+extra-deps:
+- aws-lambda-haskell-runtime-3.0.0
